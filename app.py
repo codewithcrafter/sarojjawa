@@ -14,7 +14,9 @@ CORS(app, resources={
             "http://127.0.0.1:5500",
             "http://localhost:5500",
             "https://sarojjawa.in",
-            "https://www.sarojjawa.in"
+            "https://www.sarojjawa.in",
+            "http://sarojjawa.in",
+            "http://www.sarojjawa.in"
         ],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization", "Accept"]
@@ -200,4 +202,5 @@ def generate_kundli():
         return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host='0.0.0.0', port=port, debug=False)
