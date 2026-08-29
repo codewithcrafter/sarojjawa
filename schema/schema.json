@@ -1,0 +1,110 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.sarojjawa.com/#website",
+      "url": "https://www.sarojjawa.com/",
+      "name": "Saroj Jawa Numerologist",
+      "description": "Best Numerologist in India",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.sarojjawa.com/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ],
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.sarojjawa.com/#person",
+      "name": "Saroj Jawa",
+      "jobTitle": "Professional Numerologist",
+      "url": "https://www.sarojjawa.com/",
+      "image": "https://www.sarojjawa.com/images/saroj-jawa.jpg",
+      "sameAs": [
+        "https://www.instagram.com/sarojjawa/",
+        "https://www.facebook.com/sarojjawa/",
+        "https://www.youtube.com/c/sarojjawa"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.sarojjawa.com/#organization",
+      "name": "Saroj Jawa Numerology Services",
+      "url": "https://www.sarojjawa.com/",
+      "logo": "https://www.sarojjawa.com/images/logo.png",
+      "image": "https://www.sarojjawa.com/images/saroj-jawa.jpg",
+      "description": "Personalized numerology consultations for career, business, marriage, and health.",
+      "telephone": "+91-9876543210",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Street",
+        "addressLocality": "Delhi",
+        "addressRegion": "DL",
+        "postalCode": "110001",
+        "addressCountry": "IN"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1250"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is numerology scientifically proven?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Numerology is an ancient metaphysical science based on the mathematical principles of the universe. It relies on observable patterns and vibrations rather than empirical material science."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a consultation take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard personalized consultation usually takes between 45 to 60 minutes, during which all your queries and charts are discussed in detail."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.sarojjawa.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.sarojjawa.com/about.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Services",
+          "item": "https://www.sarojjawa.com/services.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contact",
+          "item": "https://www.sarojjawa.com/contact.html"
+        }
+      ]
+    }
+  ]
+}

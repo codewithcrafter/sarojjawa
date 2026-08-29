@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5E35B1">
+  <title>Numerology Name Checker | Saroj Jawa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Name Numerology Calculator – Find Your Destiny Number
+  </title>
+  <meta name="description" cotent="Free Chaldean numerology name calculator. Enter your full name to find your destiny number & name vibration. Get name correction guidance from Saroj Jawa.
+">
+
+
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Saroj Jawa Logo" class="nav-logo"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 50\'%3E%3Ccircle cx=\'25\' cy=\'25\' r=\'20\' fill=\'%235E35B1\'/%3E%3Ccircle cx=\'25\' cy=\'25\' r=\'15\' fill=\'%23FFCA28\'/%3E%3Ctext x=\'25\' y=\'30\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'14\' fill=\'%23FFF\' text-anchor=\'middle\'%3ESB%3C/text%3E%3Ctext x=\'55\' y=\'30\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'16\' fill=\'%23311B92\'%3ESaroj Jawa%3C/text%3E%3C/svg%3E'">
+      </a>
+      <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link active">Tools <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+          <div class="dropdown-menu">
+            <a href="kundli-checker.html">Kundli Checker</a>
+            <a href="name-checker.html">Numerology Name Checker</a>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <section class="container content-wrapper fade-in" style="padding: var(--spacing-md) 20px var(--spacing-lg);">
+      <h1 class="text-center" style="margin-bottom: 20px;">Numerology Name Checker</h1>
+      <p class="text-center">Discover the vibration and destiny number hidden within your name using the Chaldean
+        Numerology system.</p>
+
+      <div class="card" style="margin-top: 40px;">
+        <div class="form-group">
+          <label class="form-label" for="fullName">Enter Your Full Name</label>
+          <input type="text" id="fullName" class="form-control" placeholder="e.g. Rahul Sharma"
+            style="font-size: 1.2rem; padding: 15px;">
+        </div>
+        <button id="calculateBtn" class="btn btn-primary"
+          style="width: 100%; font-size: 1.1rem; padding: 15px;">Calculate Number</button>
+
+        <!-- Result Box -->
+        <div id="resultBox" class="tool-result-box" style="text-align: center; margin-top: 30px;">
+          <h3 style="color: var(--color-primary);">Your Destiny Number is: <span id="destinyNumber"
+              style="font-size: 2.5rem; color: var(--color-accent); display: block; margin-top: 10px;"></span></h3>
+          <p id="destinyMeaning" style="font-weight: 500; margin-top: 15px; color: var(--color-dark);"></p>
+
+          <div style="margin-top: 25px; border-top: 1px solid var(--color-gray-light); padding-top: 20px;">
+            <p style="font-size: 0.9rem;">Want a deeper understanding of how this number affects your life, career, and
+              relationships? Or do you need a name correction to align with your birth date?</p>
+            <a href="contact.html" class="btn btn-secondary" style="margin-top: 10px;">Book a Detailed Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Chaldean Numerology Logic
+    const chaldeanMap = {
+      'a': 1, 'i': 1, 'j': 1, 'q': 1, 'y': 1,
+      'b': 2, 'k': 2, 'r': 2,
+      'c': 3, 'g': 3, 'l': 3, 's': 3,
+      'd': 4, 'm': 4, 't': 4,
+      'e': 5, 'h': 5, 'n': 5, 'x': 5,
+      'u': 6, 'v': 6, 'w': 6,
+      'o': 7, 'z': 7,
+      'f': 8, 'p': 8
+    };
+
+    const meanings = {
+      1: "Number 1 represents leadership, independence, and originality. You are a natural pioneer and have the drive to accomplish great things.",
+      2: "Number 2 signifies harmony, partnership, and diplomacy. You are highly intuitive, cooperative, and supportive of others.",
+      3: "Number 3 is the number of creativity, communication, and self-expression. You bring joy and inspiration to those around you.",
+      4: "Number 4 represents stability, hard work, and practicality. You are the builder who lays strong foundations for the future.",
+      5: "Number 5 signifies freedom, adaptability, and adventure. You thrive on change and are a natural explorer of life.",
+      6: "Number 6 is the number of love, responsibility, and nurturing. You are deeply committed to family, home, and community.",
+      7: "Number 7 represents spirituality, analysis, and seeking truth. You have a deep, intellectual mind and a strong intuition.",
+      8: "Number 8 signifies ambition, wealth, and material success. You have strong executive abilities and are driven to achieve.",
+      9: "Number 9 represents humanitarianism, compassion, and completion. You have a broad perspective and a desire to help the world."
+    };
+
+    function reduceToSingleDigit(num) {
+      if (num <= 9) return num;
+      let sum = 0;
+      while (num > 0) {
+        sum += num % 10;
+        num = Math.floor(num / 10);
+      }
+      return reduceToSingleDigit(sum);
+    }
+
+    document.getElementById('calculateBtn').addEventListener('click', function () {
+      const nameStr = document.getElementById('fullName').value.toLowerCase().trim();
+      if (!nameStr) return alert('Please enter a name');
+
+      let total = 0;
+      for (let i = 0; i < nameStr.length; i++) {
+        const char = nameStr[i];
+        if (chaldeanMap[char]) {
+          total += chaldeanMap[char];
+        }
+      }
+
+      if (total === 0) return alert('Please enter valid alphabetic characters');
+
+      const destinyNum = reduceToSingleDigit(total);
+
+      document.getElementById('destinyNumber').innerText = destinyNum;
+      document.getElementById('destinyMeaning').innerText = meanings[destinyNum] || "";
+      document.getElementById('resultBox').style.display = 'block';
+      document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+
+</html>

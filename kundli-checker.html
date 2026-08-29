@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5E35B1">
+  <title>Kundli Checker | Saroj Jawa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Free Kundli Checker – Online Janam Kundli | Saroj Jawa
+  </title>
+  <meta name="description" content="Free Kundli Checker – Online Janam Kundli | Saroj Jawa
+">
+
+
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Saroj Jawa Logo" class="nav-logo"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 50\'%3E%3Ccircle cx=\'25\' cy=\'25\' r=\'20\' fill=\'%235E35B1\'/%3E%3Ccircle cx=\'25\' cy=\'25\' r=\'15\' fill=\'%23FFCA28\'/%3E%3Ctext x=\'25\' y=\'30\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'14\' fill=\'%23FFF\' text-anchor=\'middle\'%3ESB%3C/text%3E%3Ctext x=\'55\' y=\'30\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'16\' fill=\'%23311B92\'%3ESaroj Jawa%3C/text%3E%3C/svg%3E'">
+      </a>
+      <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link active">Tools <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+          <div class="dropdown-menu">
+            <a href="kundli-checker.html">Kundli Checker</a>
+            <a href="name-checker.html">Numerology Name Checker</a>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <section class="container content-wrapper fade-in" style="padding: var(--spacing-md) 20px var(--spacing-lg);">
+      <h1 class="text-center" style="margin-bottom: 20px;">Basic Kundli Checker</h1>
+      <p class="text-center">Generate your basic astrological birth chart based on your birth details.</p>
+
+      <div class="card" style="margin-top: 40px;" id="kundliFormContainer">
+        <form id="kundliForm" onsubmit="event.preventDefault(); generateKundli();">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="chk-name" class="form-control" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Date of Birth</label>
+              <input type="date" id="chk-dob" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time of Birth</label>
+              <input type="time" id="chk-time" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Place of Birth (City, Country)</label>
+            <input type="text" id="chk-place" class="form-control" placeholder="e.g. New Delhi, India" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;"
+            id="genBtn">
+            Generate Kundli <span class="loader"></span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Result View (Hidden initially) -->
+      <div id="kundliResult" style="display: none; margin-top: 40px;" class="card fade-in">
+        <h2 class="text-center text-primary">Your Basic Kundli Overview</h2>
+        <p class="text-center">Generated for <strong id="resName"></strong></p>
+
+        <!-- North Indian Style Chart Mockup -->
+        <div class="kundli-chart-svg" style="max-width: 400px; margin: 30px auto;">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="none" stroke="var(--color-primary)" stroke-width="1" />
+            <line x1="0" y1="0" x2="100" y2="100" stroke="var(--color-primary)" stroke-width="1" />
+            <line x1="100" y1="0" x2="0" y2="100" stroke="var(--color-primary)" stroke-width="1" />
+            <line x1="50" y1="0" x2="100" y2="50" stroke="var(--color-primary)" stroke-width="1" />
+            <line x1="100" y1="50" x2="50" y2="100" stroke="var(--color-primary)" stroke-width="1" />
+            <line x1="50" y1="100" x2="0" y2="50" stroke="var(--color-primary)" stroke-width="1" />
+            <line x1="0" y1="50" x2="50" y2="0" stroke="var(--color-primary)" stroke-width="1" />
+
+            <!-- Dynamic Houses -->
+            <text x="50" y="15" id="c-h1-rashi" class="kundli-rashi-text"></text>
+            <text x="50" y="28" id="c-h1-planets" class="kundli-planet-text"></text>
+            <text x="25" y="15" id="c-h2-rashi" class="kundli-rashi-text"></text>
+            <text x="25" y="28" id="c-h2-planets" class="kundli-planet-text"></text>
+            <text x="12" y="28" id="c-h3-rashi" class="kundli-rashi-text"></text>
+            <text x="12" y="41" id="c-h3-planets" class="kundli-planet-text"></text>
+            <text x="25" y="40" id="c-h4-rashi" class="kundli-rashi-text"></text>
+            <text x="25" y="53" id="c-h4-planets" class="kundli-planet-text"></text>
+            <text x="12" y="66" id="c-h5-rashi" class="kundli-rashi-text"></text>
+            <text x="12" y="79" id="c-h5-planets" class="kundli-planet-text"></text>
+            <text x="25" y="79" id="c-h6-rashi" class="kundli-rashi-text"></text>
+            <text x="25" y="92" id="c-h6-planets" class="kundli-planet-text"></text>
+            <text x="50" y="66" id="c-h7-rashi" class="kundli-rashi-text"></text>
+            <text x="50" y="79" id="c-h7-planets" class="kundli-planet-text"></text>
+            <text x="75" y="79" id="c-h8-rashi" class="kundli-rashi-text"></text>
+            <text x="75" y="92" id="c-h8-planets" class="kundli-planet-text"></text>
+            <text x="88" y="66" id="c-h9-rashi" class="kundli-rashi-text"></text>
+            <text x="88" y="79" id="c-h9-planets" class="kundli-planet-text"></text>
+            <text x="75" y="40" id="c-h10-rashi" class="kundli-rashi-text"></text>
+            <text x="75" y="53" id="c-h10-planets" class="kundli-planet-text"></text>
+            <text x="88" y="28" id="c-h11-rashi" class="kundli-rashi-text"></text>
+            <text x="88" y="41" id="c-h11-planets" class="kundli-planet-text"></text>
+            <text x="75" y="15" id="c-h12-rashi" class="kundli-rashi-text"></text>
+            <text x="75" y="28" id="c-h12-planets" class="kundli-planet-text"></text>
+          </svg>
+        </div>
+        <div id="c-kundli-summary" class="kundli-summary-badge"
+          style="display: none; margin-bottom: 20px; text-align: center;"></div>
+
+        <div
+          style="background: var(--color-beige); padding: 20px; border-radius: var(--border-radius); text-align: center;">
+          <h4 style="margin-bottom: 10px;">Important Notice</h4>
+          <p style="font-size: 0.95rem; margin-bottom: 15px;">This is a basic automated overview. True astrological
+            insights require a deep analysis of planetary degrees, dashas, and divisional charts.</p>
+          <p style="font-size: 0.95rem; margin-bottom: 20px;">To understand how these planetary placements influence
+            your career, business, marriage, and personal growth, a personalized reading is highly recommended.</p>
+          <a href="contact.html" class="btn btn-secondary">Book a Detailed Astrology Consultation</a>
+        </div>
+
+        <div class="text-center" style="margin-top: 20px;">
+          <a href="#" onclick="location.reload(); return false;"
+            style="color: var(--color-primary); text-decoration: underline;">Check Another Kundli</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+
+  <script>
+    // Moved generateKundli to js/script.js to unify logic
+  </script>
+  </script>
+</body>
+
+</html>

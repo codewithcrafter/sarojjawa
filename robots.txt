@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Exclude private or utility pages
+Disallow: /404.html
+Disallow: /thank-you.html
+
+# Sitemaps
+Sitemap: https://www.sarojjawa.com/sitemap.xml
