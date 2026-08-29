@@ -156,16 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Kundli Generator API Integration
-    const getApiBaseUrl = () => {
-      const hostname = window.location.hostname;
-      // Local development (Live Server runs on 5500, Flask on 5001)
-      if ((hostname === '127.0.0.1' || hostname === 'localhost') && window.location.port === '5500') {
-        return 'http://127.0.0.1:5001';
-      }
-      // Production or if Flask is serving the frontend directly
-      return '';
-    };
-    const API_BASE_URL = getApiBaseUrl();
+    const API_BASE_URL = 'https://sarojjawa-backend.onrender.com';
 
     const handleKundliSubmit = async (nameId, dobId, timeId, placeId, spinnerId, resultViewId, resultTitleId, prefix) => {
       const nameInput = document.getElementById(nameId).value.trim();
@@ -186,8 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (resultView) resultView.style.display = 'none';
 
       try {
-        const API_BASE_URL = "https://sarojjawa-backend.onrender.com"; // Live Render Backend URL
-
         const response = await fetch(`${API_BASE_URL}/api/astrology/kundli`, {
           method: 'POST',
           headers: {

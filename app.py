@@ -15,7 +15,9 @@ CORS(app, resources={
             "http://localhost:5500",
             "https://sarojjawa.in",
             "https://www.sarojjawa.in"
-        ]
+        ],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization", "Accept"]
     }
 })
 
